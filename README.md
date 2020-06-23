@@ -9,3 +9,4 @@ Components & Props: https://reactjs.org/docs/components-and-props.html
 Listenable Events: https://reactjs.org/docs/events.html
 https://www.youtube.com/watch?v=jCalDxGthoc&feature=youtu.be --->SPRINGBOOT AND REACTJS
 https://npmjs.com/package/react-datepicker
+Babel is an interpreter used to convert JSX to Javascript

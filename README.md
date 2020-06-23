@@ -10,3 +10,4 @@ Listenable Events: https://reactjs.org/docs/events.html
 https://www.youtube.com/watch?v=jCalDxGthoc&feature=youtu.be --->SPRINGBOOT AND REACTJS
 https://npmjs.com/package/react-datepicker
 Babel is an interpreter used to convert JSX to Javascript
+State is internal to the component and Props is external to the component

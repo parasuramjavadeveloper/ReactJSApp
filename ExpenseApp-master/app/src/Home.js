@@ -12,7 +12,7 @@ class Home extends Component {
             <div>
              <AppNav/>
              <h2 style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
-               Welcome to easy expense app !
+               Welcome to react expense app !
                </h2>
               </div>
             );

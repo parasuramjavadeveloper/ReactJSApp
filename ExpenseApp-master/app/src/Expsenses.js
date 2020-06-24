@@ -51,7 +51,7 @@ class Expsenses extends Component {
       const item = this.state.item;
     
 
-      await fetch(`/api/expenses`, {
+      await fetch(`http://localhost:9085/api/expenses`, {
         method : 'POST',
         headers : {
           'Accept': 'application/json',
@@ -89,7 +89,7 @@ class Expsenses extends Component {
 
 
     async remove(id){
-        await fetch(`/api/expenses/${id}` , {
+        await fetch(`http://localhost:9085/api/expenses/${id}` , {
           method: 'DELETE' ,
           headers : {
             'Accept' : 'application/json',
@@ -108,12 +108,12 @@ class Expsenses extends Component {
  
      
 
-        const response= await fetch('/api/categories');
+        const response= await fetch('http://localhost:9085/api/categories');
         const body= await response.json();
         this.setState({Categories : body , isLoading :false});
 
 
-        const responseExp= await fetch('/api/expenses');
+        const responseExp= await fetch('http://localhost:9085/api/expenses');
         const bodyExp = await responseExp.json();
         this.setState({Expsenses : bodyExp , isLoading :false});
         console.log(bodyExp);

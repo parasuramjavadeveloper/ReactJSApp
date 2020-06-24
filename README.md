@@ -11,3 +11,5 @@ https://www.youtube.com/watch?v=jCalDxGthoc&feature=youtu.be --->SPRINGBOOT AND 
 https://npmjs.com/package/react-datepicker
 Babel is an interpreter used to convert JSX to Javascript
 State is internal to the component and Props is external to the component
+https://styled-components.com/  --- for styling components
+React native for mobile apps :- https://www.youtube.com/watch?v=dBE2eZjf7Rw

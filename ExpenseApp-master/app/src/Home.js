@@ -14,7 +14,7 @@ class Home extends Component {
              <h2 style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
                Welcome to react expense app !
                </h2>
-              </div>
+             </div>
             );
     }
 }

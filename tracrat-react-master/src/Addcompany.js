@@ -8,71 +8,95 @@ import { Card, Button, CardHeader, CardFooter, CardBody,
   import { AvForm, AvField } from 'availity-reactstrap-validation';
   import { Col, Row, Form, FormGroup, Label, Input } from 'reactstrap';
 import Axios from 'axios';
-
-  
+import history from './history';
+import { configure } from '@testing-library/react';
 
 const Addcompany = (props) => {
-    const model=useState({
-      "address1":  "",
-      "address2":  "",
-      "announcement": {
-        "announcementdate": new Date().toISOString(),
-        "announcementid": 0,
-        "announcementtext":  "",
-        "company": {
-
-        }
-      },
-      "city": "",
-      "companycontenttype":  "",
-      "companyfilename":  "",
-      "companyid": 0,
-      "userid": sessionStorage.getItem("userId"),
-      "description":  "",
-      "fax":  "",
-      "issandbox": true,
-      "lastmodifiedby": "tracrat",
-      "name": "",
-      "parentcompanyid": 0,
-      "phone":  "",
-      "postalcode":  "",
-      "state":  "",
-      "statusid": 0,
-      "supplylevelwarning": true,
-      "type": {
-        "attributesearchdisplay": 0,
-        "description": "",
-        "entitytypeid": 0,
-        "hostingfee": 0,
-        "ishidden": true,
-        "lastmodifiedby": "",
-        "name": "",
-        "parentid": 0,
-        "typeid": 0,
-        "typemtbs": 0,
-        "typespareratio": 0
-      },
-      "url":  "",
-      "vendor": false
-        
-    })
-
+  const model={
+    "name": '',
+    "url": ''
+  };
+    const requestBody={
+      
+        "address1": "Lindholmen",
+        "address2": "Lindholmen12",
+        "announcement": {
+            "announcementdate": "2020-08-10T15:21:29.084Z",
+            "announcementid": 0,
+            "announcementtext": "xyz",
+            "company": {}
+        },
+        "city": "Gothenburg",
+        "companycontenttype": "",
+        "companyfilename": "",
+        "companyid": 0,
+        "userid": "99B27614-A682-4BA3-B9CE-7E52CFA659D7",
+        "description": "welcome Capgemini company",
+        "fax": "yy",
+        "issandbox": true,
+        "lastmodifiedby": "ypatel",
+        "name": "capgemini",
+        "parentcompanyid": 0,
+        "phone": 9874561230,
+        "postalcode": 533228,
+        "state": "Gothenburg",
+        "statusid": 0,
+        "supplylevelwarning": true,
+        "type": {
+            "attributesearchdisplay": 0,
+            "description": "",
+            "entitytypeid": 0,
+            "hostingfee": 0,
+            "ishidden": true,
+            "lastmodifiedby": "",
+            "name": "",
+            "parentid": 0,
+            "typeid": 0,
+            "typemtbs": 0,
+            "typespareratio": 0
+        },
+        "url": "capgemini.com",
+        "vendor": false
+    
+    
+    }
 
 
 
 
  function  saveCompany() {
-    
-        Axios.post("http://gotracrat.in:8085/api/company/add",model).then(response=>{
-        this.result=response.companyId;
-        alert('company successfully added ');
-        console.log('added'+this.result);
-    },error=>{
-        alert('not added');
-    }
-    )
 
-    ;
+Axios.request( {
+baseURL:"http://gotracrat.in:8085",
+url:"/api/company/add",
+method:"POST",
+params:{},
+data:requestBody,
+headers:{},
+timeout:0,
+responseType:"json"
+
+}).then((response)=>{
+  console.log(response);
+}).catch((error)=>{
+  console.log(error.response);
+  console.log(error.message);
+});
+
+
+
+
+    
+    //     Axios.post("http://gotracrat.in:8085/api/company/add",model).then(response=>{
+    //     this.result=response.companyId;
+    //     alert('company successfully added ');
+    //     console.log('added'+this.result);
+    // },error=>{
+    //     alert('not added');
+    // }
+    // )
+
+    // ;
    
    
 }
@@ -90,8 +114,8 @@ const Addcompany = (props) => {
           <FormGroup>
             <Label for="exampleName" >Name </Label><strong className="text-danger">*</strong>
             
-            <Input type="text" name="companyname" id="exampleName" placeholder="Enter Company Name" value={model.name} onChange={e => {
-          model.name = e.target.value;} }/>
+            <Input type="text" name="companyname" id="exampleName" placeholder="Enter Company Name" value={model.name}  onChange={e => {
+          model.name = e.target.value;} } />
           </FormGroup>
         </Col>
         <Col md={6}>
@@ -204,7 +228,14 @@ const Addcompany = (props) => {
       <FormGroup check row>
         <Col sm={{ size: 10, offset: 5 }}>
         <Button color="danger" size="lg" onClick={saveCompany}>Save</Button>{' '}
-      <Button color="danger" size="lg">Back</Button>
+      <Button color="danger" size="lg" onClick={function click(){
+
+history.push('/managecompany');
+window.location.reload();
+
+
+  
+  }}>Back</Button>
 
       
         </Col>
